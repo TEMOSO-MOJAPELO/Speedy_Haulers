@@ -25,7 +25,7 @@ export default function Navbar() {
             <div className="flex items-center" onClick={() => router.push('#home')}>
               <Building2 className="h-8 w-8 text-primary" />
               <span className="ml-2 font-bold text-xl text-white">
-                BuildCraft Pro
+                Speedy Haulers
               </span>
             </div>
             <div className="hidden md:flex space-x-8">

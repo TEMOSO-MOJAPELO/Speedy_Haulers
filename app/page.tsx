@@ -1,83 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+
 import Hero from "@/components/sections/hero";
 import About from "@/components/sections/about";
-import { Building2, Mail, Phone, MapPin, Menu, X } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { Building2, Mail, Phone, MapPin } from "lucide-react";
 import Services from "@/components/sections/services";
 import Partner from "@/components/sections/partner";
 import Contact from "@/components/sections/contact";
+import Navbar from "@/components/sections/navbar";
 
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
       {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-gray-900/95 backdrop-blur-sm" : "bg-transparent"
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center" onClick={() => router.push('#home')}>
-              <Building2 className="h-8 w-8 text-primary" />
-              <span className="ml-2 font-bold text-xl text-white">
-                Speedy Haulers
-              </span>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              {["Home", "About", "Services", "Partners", "Contact"].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-primary transition-colors"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-            <button
-              className="md:hidden text-white"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 text-white" />
-              ) : (
-                <Menu className="h-6 w-6 text-white" />
-              )}
-            </button>
-          </div>
-        </div>
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-gray-900/95 backdrop-blur-sm">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {["Home", "About", "Services", "Partners", "Contact"].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block px-3 py-2 text-gray-300 hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <Hero />
