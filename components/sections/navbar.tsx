@@ -4,6 +4,14 @@ import { useEffect, useState } from "react";
 import { Building2, Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
+];
+
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,13 +37,13 @@ export default function Navbar() {
               </span>
             </div>
             <div className="hidden md:flex space-x-8">
-              {["Home", "About", "Services", "Partners", "Contact"].map((item) => (
+              {navigation.map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.name}
+                  href={item.href}
                   className="text-gray-300 hover:text-primary transition-colors"
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
             </div>
@@ -55,14 +63,14 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden bg-gray-900/95 backdrop-blur-sm">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {["Home", "About", "Services", "Partners", "Contact"].map((item) => (
+              {navigation.map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.name}
+                  href={item.href}
                   className="block px-3 py-2 text-gray-300 hover:text-primary transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
             </div>

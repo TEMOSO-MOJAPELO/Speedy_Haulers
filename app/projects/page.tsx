@@ -1,37 +1,15 @@
-"use client";
+"use client"
 
-import Hero from "@/components/sections/hero";
-import About from "@/components/sections/about";
+import Navbar from "@/components/sections/navbar"
 import { Building2, Mail, Phone, MapPin } from "lucide-react";
-import Services from "@/components/sections/services";
-import Partner from "@/components/sections/partner";
-import Contact from "@/components/sections/contact";
-import Navbar from "@/components/sections/navbar";
 
+export default function AboutUs() {
+    return <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
+        <Navbar />
 
-export default function Home() {
+        
 
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Hero Section */}
-      <Hero />
-
-      {/* About Section */}
-      <About />
-
-      {/* Services Section */}
-      <Services />
-
-      {/* Partners Section */}
-      <Partner />
-
-      {/* Contact Section */}
-      <Contact />
-
-      {/* Footer */}
+        {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
@@ -50,7 +28,7 @@ export default function Home() {
                 {["Home", "About", "Services", "Partners", "Contact"].map((item) => (
                   <li key={item}>
                     <a
-                      href={`/${item.toLowerCase()}`}
+                      href={`#${item.toLowerCase()}`}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       {item}
@@ -102,6 +80,5 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </main>
-  );
+    </div>
 }
