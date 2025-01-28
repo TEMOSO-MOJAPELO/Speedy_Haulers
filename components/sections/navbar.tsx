@@ -24,7 +24,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center" onClick={() => router.push('#home')}>
               <Building2 className="h-8 w-8 text-primary" />
-              <span className="ml-2 font-bold text-xl text-white">
+              <span className="ml-2 font-bold text-xl md:text-lg sm:text-md text-white">
                 Speedy Haulers
               </span>
             </div>

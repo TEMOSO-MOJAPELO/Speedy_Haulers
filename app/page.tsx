@@ -1,6 +1,5 @@
 "use client";
 
-
 import Hero from "@/components/sections/hero";
 import About from "@/components/sections/about";
 import { Building2, Mail, Phone, MapPin } from "lucide-react";
